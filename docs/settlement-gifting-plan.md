@@ -59,7 +59,10 @@ Found while building, and how the mod handles it:
    errors) and the game restarted, it was still missing from "Target Mods". The one difference
    from Tech and Civic Queue's modinfo, which loads, was `version="0.1.0"`; every working
    modinfo uses a whole number. The modinfo now has `version="1"`, with the release version in a
-   `<Version>` property that the packaging script and release workflow read. Not yet confirmed.
+   `<Version>` property that the packaging script and release workflow read. Confirmed: with
+   `version="1"`, enabled in Add-ons and after a restart, the mod shows in the pause menu's Mods
+   list. A dotted `version` attribute makes the game skip a mod it reports as enabled, without
+   any error.
 
 ### Phase 0 results
 
