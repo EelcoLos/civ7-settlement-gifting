@@ -65,8 +65,10 @@ peace, so a player without the mod would get an empty screen.
 
 Everything lives in `mod/settlement-gifting/ui/`:
 
-- `settlement-gifting.js` wraps four named base-game methods:
+- `settlement-gifting.js` wraps five named base-game methods:
   - `DiplomacyManager.populateDiplomacyActions` adds the button.
+  - `populateAvailableActions` of `panel-other-player-diplomacy-actions` gives the button a line of
+    its own, since the game sized that row for two buttons.
   - `populatePeaceDeal` of `panel-diplomacy-peace-deal` fills the screen when the two players are
     at peace, and runs the base method otherwise.
   - `clickProposeButton` asks for confirmation before settlements leave.
@@ -77,7 +79,7 @@ Everything lives in `mod/settlement-gifting/ui/`:
 
 The setup option is one `Parameters` row in `config/sg-config.xml`, which the script reads with
 `Configuration.getGame().getValue("NoSettlementGifting")`. When a game update breaks the mod,
-look at the four methods above first.
+look at the five methods above first.
 
 ## Development
 

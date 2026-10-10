@@ -5,6 +5,7 @@
 import DiplomacyManager, { TempDiplomacyActionType } from '/base-standard/ui/diplomacy/diplomacy-manager.js';
 import LeaderModelManager from '/base-standard/ui/diplomacy/leader-model-manager.js';
 import '/base-standard/ui/diplomacy-peace-deal/panel-diplomacy-peace-deal.js';
+import '/base-standard/ui/diplomacy-actions/panel-other-diplomacy.js';
 import { InterfaceMode } from '/core/ui/interface-modes/interface-modes.js';
 import { DialogBoxManager } from '/core/ui/dialog-box/manager-dialog-box.js';
 import { DialogBoxAction } from '/core/ui/dialog-box/model-dialog-box.js';
@@ -80,6 +81,26 @@ DiplomacyManager.populateDiplomacyActions = function () {
         console.error("[settlement-gifting] diplomacy action failed:", e);
     }
 };
+
+// The panel's button row is sized for two buttons; ours gets a line of its own above the base pair.
+function patchActionPanel(proto) {
+    const basePopulate = proto.populateAvailableActions;
+    proto.populateAvailableActions = function () {
+        basePopulate.call(this);
+        const row = this.majorActionsSlot;
+        if (!row) return;
+        const caption = Locale.compose("LOC_SG_ACTION_NAME");
+        const ours = Array.from(row.children).find((button) => button.getAttribute("caption") == caption);
+        row.classList.toggle("flex-wrap", !!ours);
+        if (!ours) return;
+        // Without their right margins the two base buttons fit on one line of the wrapping row.
+        Array.from(row.children).forEach((button) => button.classList.remove("mr-4"));
+        const lineBreak = document.createElement("div");
+        lineBreak.classList.add("w-full");
+        row.insertBefore(lineBreak, row.firstChild);
+        row.insertBefore(ours, lineBreak);
+    };
+}
 
 // ---------------------------------------------------------------------------------------------
 // The deal screen at peace
@@ -296,6 +317,12 @@ if (DealPanel) {
     patchDealPanel(DealPanel.prototype);
 } else {
     console.error("[settlement-gifting] panel-diplomacy-peace-deal not found; the deal screen is unchanged");
+}
+const ActionPanel = Controls.getDefinition("panel-other-player-diplomacy-actions")?.createInstance;
+if (ActionPanel) {
+    patchActionPanel(ActionPanel.prototype);
+} else {
+    console.error("[settlement-gifting] panel-other-player-diplomacy-actions not found; the button row is unchanged");
 }
 // One line in Logs/UI.log, so a bug report shows whether the mod ran and what the setup option read.
 console.warn(`[settlement-gifting] loaded; ${SETUP_KEY} = ${JSON.stringify(Configuration.getGame().getValue(SETUP_KEY))}`);
