@@ -48,9 +48,13 @@ Found while building, and how the mod handles it:
    `ui/settlement-gifting.js` in UIScripts, and the game may not load a mod file the modinfo does
    not name, so all three files are now listed, as Leonardfactory's UI mod does with its modules.
    The second try, in a Modern-age save from before the mod, still showed no button and nothing
-   from the mod in UI.log. Either the mod did not run, or the old on-switch read as off (item 6).
-   The mod now writes `[settlement-gifting] loaded; NoSettlementGifting = <value>` to UI.log
-   at startup, which tells the two apart and shows what a missing setup value reads as.
+   from the mod in UI.log. The mod now writes `[settlement-gifting] loaded;
+   NoSettlementGifting = <value>` to UI.log at startup.
+   The third try's Modding.log gave the real cause: the game discovered the mod but left it out
+   of every "Target Mods" list, so it was never enabled and none of its code ran. Replacing the
+   folder made the game delete and rediscover the mod, which came back switched off. The
+   modinfo now sets `EnabledByDefault` to 1, as Firaxis' DLC modinfos do. The module listing and
+   the off-switch of item 6 were made before this was known; both stay as harmless hardening.
 
 ### Phase 0 results
 

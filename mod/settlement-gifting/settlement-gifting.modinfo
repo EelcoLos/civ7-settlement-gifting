@@ -6,6 +6,7 @@
 		<Authors>Strikeman</Authors>
 		<Package>Mod</Package>
 		<AffectsSavedGames>0</AffectsSavedGames>
+		<EnabledByDefault>1</EnabledByDefault>
 	</Properties>
 	<Dependencies>
 		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
