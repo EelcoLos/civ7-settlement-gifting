@@ -56,9 +56,9 @@ peace, so a player without the mod would get an empty screen.
 ## Limits
 
 - The game decides whether an AI accepts, and the AI never offers a settlement by itself.
-- The game data has a transfer unrest, `StandardCityTransferUnrest` (amount 15 for 10 turns,
-  scaled by game speed). In the first test a gifted city showed none to the giver; whether the
-  receiver gets it is still unchecked.
+- Settlements traded in a deal get no unrest. In tests neither a gifted town nor a bought one
+  showed any, although the game data has a transfer unrest for other transfers.
+- An AI judges deals in both directions: it accepts gifts and may sell a settlement for gold.
 - English only. Every string is a `LOC_` key in `text/en_us/`, so a translation is one more file.
 
 ## How it works

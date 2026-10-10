@@ -73,7 +73,7 @@ Found while building, and how the mod handles it:
 | E1b | | | |
 | E2 | 2026-10-10 | Pass | Same save: Marrakesh offered to Machiavelli (AI, at peace). Verdict "will accept", the confirmation dialog appeared, and after Propose the city became his. Little relationship change. No unrest visible to the giver; whether the receiver gets transfer unrest is still open (E3). |
 | E3 | | | |
-| E4 | 2026-10-10 | Verdict only | Same save: asking Xerxes (AI, at peace) for Pāthra-gadā (pop 7) in exchange for 1,500 gold got "will accept". The AI weighs both directions, so settlements can be bought for gold. Whether the trade completes is not yet checked. |
+| E4 | 2026-10-10 | Pass | Same save: Xerxes (AI, at peace) accepted selling Pāthra-gadā (pop 7) for 1,500 gold and the trade went through. The city arrived without unrest. The AI weighs both directions, so settlements can be bought for gold. |
 | E5 | | | |
 | E6 | | | |
 
@@ -133,6 +133,7 @@ uses, so it needs one in-game check. Scripts and UI can read the value with
 Side effects the engine applies to any transfer: 15 unrest for 10 turns
 (`StandardCityTransferUnrest` in `base-standard/data/happiness-identity.xml:18`), the city
 property `LastTransferType`, the `CityTransfered` engine event, and the settlement cap.
+(Tested 2026-10-10: settlements traded in a deal got no unrest, on either side; see E2 and E4.)
 
 ## Candidate mechanisms
 
