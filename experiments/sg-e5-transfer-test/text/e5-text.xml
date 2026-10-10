@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_SG_E5_A_NAME">
+			<Text>E5 test A: transfer on completion</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_A_DESCRIPTION">
+			<Text>Test: when this completes, EFFECT_CITY_TRANSFER_OWNER runs on the initiating player.</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_B_NAME">
+			<Text>E5 test B: transfer on acceptance</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_B_DESCRIPTION">
+			<Text>Test: if the target accepts, EFFECT_CITY_TRANSFER_OWNER runs on every city of the target. Throwaway saves only.</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_REQUEST">
+			<Text>asks for one of your settlements (E5 test)</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_ACCEPT">
+			<Text>Accept the E5 test.</Text>
+		</Row>
+		<Row Tag="LOC_SG_E5_REJECT">
+			<Text>Reject the E5 test.</Text>
+		</Row>
+	</EnglishText>
+</Database>

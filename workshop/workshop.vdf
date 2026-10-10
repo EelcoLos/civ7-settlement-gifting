@@ -1,0 +1,10 @@
+"workshopitem"
+{
+	"appid"			"1295660"
+	"publishedfileid"	"0"
+	"contentfolder"		"@CONTENT@"
+	"visibility"		"2"
+	"title"			"[1.5.0] Settlement Gifting"
+	"description"		"@DESCRIPTION@"
+	"changenote"		"@CHANGENOTE@"
+}

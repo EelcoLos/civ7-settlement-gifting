@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Game setup toggle, shown under Advanced Options > Game Options. ui/settlement-gifting.js reads it
+     with Configuration.getGame().getValue("SettlementGifting"). -->
+<Database>
+	<Parameters>
+		<Row ParameterID="SettlementGifting" Name="LOC_SG_SETUP_NAME" Description="LOC_SG_SETUP_DESCRIPTION" Domain="bool" Hash="0" DefaultValue="1" ConfigurationGroup="Game" ConfigurationKey="SettlementGifting" GroupId="GameOptions" ChangeableAfterGameStart="0" SortIndex="2100" />
+	</Parameters>
+</Database>

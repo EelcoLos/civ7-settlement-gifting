@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameEffects xmlns="GameEffects">
+	<Modifier id="SG_E5_A_TRANSFER" collection="COLLECTION_OWNER" effect="EFFECT_CITY_TRANSFER_OWNER" run-once="true" permanent="true">
+		<Argument name="TransferType">BY_REVOLT</Argument>
+	</Modifier>
+	<Modifier id="SG_E5_B_ATTACH" collection="COLLECTION_OWNER" effect="EFFECT_DAE_TARGET_ATTACH_MODIFIER">
+		<String context="Name">LOC_SG_E5_B_NAME</String>
+		<Argument name="TargetPlayerAccept">SG_E5_B_TRANSFER</Argument>
+	</Modifier>
+	<Modifier id="SG_E5_B_TRANSFER" collection="COLLECTION_PLAYER_CITIES" effect="EFFECT_CITY_TRANSFER_OWNER" run-once="true" permanent="true">
+		<Argument name="TransferType">BY_REVOLT</Argument>
+	</Modifier>
+</GameEffects>

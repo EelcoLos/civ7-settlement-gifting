@@ -1,0 +1,36 @@
+# Manual: upload the mod folder of the chosen ref to its Steam Workshop item with SteamCMD.
+# Secrets: STEAM_USERNAME, and STEAM_CONFIG_VDF (base64 of SteamCMD's config.vdf after a login);
+# workshop/PUBLISHING.md explains how to get them.
+name: Workshop update
+on:
+  workflow_dispatch:
+    inputs:
+      changenote:
+        description: Change note for the Workshop page (no straight double quotes)
+        required: true
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: node --test test/sg-rules.test.js
+      - name: Install SteamCMD
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q lib32gcc-s1
+          mkdir -p "$HOME/steamcmd"
+          curl -sSL https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -xz -C "$HOME/steamcmd"
+      - name: Restore the Steam login
+        env:
+          STEAM_CONFIG_VDF: ${{ secrets.STEAM_CONFIG_VDF }}
+        run: |
+          # SteamCMD reads config.vdf from its own folder or from ~/Steam depending on the install; write both.
+          for dir in "$HOME/steamcmd/config" "$HOME/Steam/config"; do
+            mkdir -p "$dir"
+            echo "$STEAM_CONFIG_VDF" | base64 -d > "$dir/config.vdf"
+          done
+      - name: Upload
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          CHANGENOTE: ${{ inputs.changenote }}
+        run: STEAMCMD="$HOME/steamcmd/steamcmd.sh" scripts/upload_workshop.sh --changenote "$CHANGENOTE"

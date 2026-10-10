@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two clones of DIPLOMACY_ACTION_DEMAND_TRIBUTE (age-exploration/data/diplomacy-actions.xml): same
+     operation type and settlement target, no unlock, one turn long, cheap, and a city transfer effect.
+     A: EFFECT_CITY_TRANSFER_OWNER on COLLECTION_OWNER when the action completes.
+     B: EFFECT_DAE_TARGET_ATTACH_MODIFIER at the start; on acceptance the target player gets
+        EFFECT_CITY_TRANSFER_OWNER on COLLECTION_PLAYER_CITIES (may move every city of the target). -->
+<Database>
+	<Types>
+		<Row Type="DIPLOMACY_ACTION_SG_E5_A" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_ACTION_SG_E5_B" Kind="KIND_DIPLOMACY_ACTION" />
+		<Row Type="DIPLOMACY_SG_E5_A_STARTED" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<Row Type="DIPLOMACY_SG_E5_A_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<Row Type="DIPLOMACY_SG_E5_B_STARTED" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+		<Row Type="DIPLOMACY_SG_E5_B_COMPLETE" Kind="KIND_DIPLOMACY_ACTION_STAGE" />
+	</Types>
+	<DiplomacyActions>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" Name="LOC_SG_E5_A_NAME" Description="LOC_SG_E5_A_DESCRIPTION" BaseTokenCost="1" BaseDuration="1" Symmetrical="true" Opposed="true" IsMutualSupport="false" CancelPenalty="0" RequestString="LOC_SG_E5_REQUEST" UIIconPath="blp:dipaction_demandtribute" RequiresUnlock="false" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" Name="LOC_SG_E5_B_NAME" Description="LOC_SG_E5_B_DESCRIPTION" BaseTokenCost="1" BaseDuration="1" Symmetrical="true" Opposed="true" IsMutualSupport="false" CancelPenalty="0" RequestString="LOC_SG_E5_REQUEST" UIIconPath="blp:dipaction_demandtribute" RequiresUnlock="false" />
+	</DiplomacyActions>
+	<DiplomaticActionValidTokens>
+		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" />
+		<Row TokenType="DIPLOMACY_TOKEN_GLOBAL" DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" />
+	</DiplomaticActionValidTokens>
+	<DiplomaticActionStages>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" StageType="DIPLOMACY_SG_E5_A_STARTED" ProgressRequirement="0" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" StageType="DIPLOMACY_SG_E5_A_COMPLETE" ProgressRequirement="1" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" StageType="DIPLOMACY_SG_E5_B_STARTED" ProgressRequirement="0" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" StageType="DIPLOMACY_SG_E5_B_COMPLETE" ProgressRequirement="1" />
+	</DiplomaticActionStages>
+	<EnterStageModifiers>
+		<Row StageType="DIPLOMACY_SG_E5_A_COMPLETE" ModifierId="SG_E5_A_TRANSFER" />
+		<Row StageType="DIPLOMACY_SG_E5_B_STARTED" ModifierId="SG_E5_B_ATTACH" />
+	</EnterStageModifiers>
+	<DiplomaticProjects_UI_Data>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_SANCTION" PlayerOperationType="DEMAND_TRIBUTE_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" MaxNumEnvoys="2" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_SG_E5_A_DESCRIPTION" ActiveDescription="LOC_SG_E5_A_DESCRIPTION" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" DiplomacyActionGroup="DIPLOMACY_ACTION_GROUP_SANCTION" PlayerOperationType="DEMAND_TRIBUTE_DIPLOMATIC_ACTION" Target1Type="DIPLOMACY_TARGET_PLAYER" Target2Type="DIPLOMACY_TARGET_SETTLEMENT" MaxNumEnvoys="2" MinNumVirtEnvoys="1" MaxNumVirtEnvoys="2" MaxNumSupportEnvoys="0" MaxNumOpposeEnvoys="0" Description="LOC_SG_E5_B_DESCRIPTION" ActiveDescription="LOC_SG_E5_B_DESCRIPTION" />
+	</DiplomaticProjects_UI_Data>
+	<DiplomaticActionInfluenceCosts>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" InfCostHostile="10" InfCostUnfriendly="10" InfCostNeutral="10" InfCostFriendly="10" InfCostHelpful="10" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" InfCostHostile="10" InfCostUnfriendly="10" InfCostNeutral="10" InfCostFriendly="10" InfCostHelpful="10" />
+	</DiplomaticActionInfluenceCosts>
+	<DiplomaticActionResponses>
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_SG_E5_ACCEPT" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_A" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_SG_E5_REJECT" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" DiplomaticResponseType="DIPLOMACY_RESPONSE_ACCEPT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_ACCEPT" Description="LOC_SG_E5_ACCEPT" />
+		<Row DiplomacyActionType="DIPLOMACY_ACTION_SG_E5_B" DiplomaticResponseType="DIPLOMACY_RESPONSE_REJECT" InfCost="0" Name="LOC_DIPLOMACY_RESPONSE_REJECT" Description="LOC_SG_E5_REJECT" />
+	</DiplomaticActionResponses>
+</Database>

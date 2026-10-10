@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="settlement-gifting" version="0.1.0" xmlns="ModInfo">
+	<Properties>
+		<Name>LOC_MOD_SETTLEMENT_GIFTING_NAME</Name>
+		<Description>LOC_MOD_SETTLEMENT_GIFTING_DESCRIPTION</Description>
+		<Authors>Strikeman</Authors>
+		<Package>Mod</Package>
+		<AffectsSavedGames>0</AffectsSavedGames>
+	</Properties>
+	<Dependencies>
+		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+	</Dependencies>
+	<ActionCriteria>
+		<Criteria id="always">
+			<AlwaysMet />
+		</Criteria>
+	</ActionCriteria>
+	<ActionGroups>
+		<ActionGroup id="settlement-gifting-shell" scope="shell" criteria="always">
+			<Actions>
+				<UpdateDatabase>
+					<Item>config/sg-config.xml</Item>
+				</UpdateDatabase>
+				<UpdateText>
+					<Item>text/en_us/SettlementGiftingText.xml</Item>
+				</UpdateText>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="settlement-gifting-game" scope="game" criteria="always">
+			<Actions>
+				<UpdateText>
+					<Item>text/en_us/SettlementGiftingText.xml</Item>
+				</UpdateText>
+				<UIScripts>
+					<Item>ui/settlement-gifting.js</Item>
+				</UIScripts>
+			</Actions>
+		</ActionGroup>
+	</ActionGroups>
+	<LocalizedText>
+		<File>text/en_us/ModInfoText.xml</File>
+	</LocalizedText>
+</Mod>

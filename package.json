@@ -1,0 +1,8 @@
+{
+  "name": "settlement-gifting",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/sg-rules.test.js"
+  }
+}

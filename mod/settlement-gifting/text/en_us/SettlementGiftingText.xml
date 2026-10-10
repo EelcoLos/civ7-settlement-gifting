@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<!-- Game setup -->
+		<Row Tag="LOC_SG_SETUP_NAME">
+			<Text>Settlement Gifting</Text>
+		</Row>
+		<Row Tag="LOC_SG_SETUP_DESCRIPTION">
+			<Text>Leaders at peace can trade towns and cities through a deal in the diplomacy screen.</Text>
+		</Row>
+
+		<!-- Diplomacy screen -->
+		<Row Tag="LOC_SG_ACTION_NAME">
+			<Text>Offer Settlement</Text>
+		</Row>
+		<Row Tag="LOC_SG_BLOCKED_NOT_YOUR_TURN">
+			<Text>You can only propose a deal during your turn.</Text>
+		</Row>
+		<Row Tag="LOC_SG_BLOCKED_DEAL_PENDING">
+			<Text>A deal with this leader is already waiting for an answer.</Text>
+		</Row>
+		<Row Tag="LOC_SG_BLOCKED_RELATIONSHIP">
+			<Text>Your Settlement Gifting options require this relationship: {1_Relationship}</Text>
+		</Row>
+
+		<!-- Deal screen -->
+		<Row Tag="LOC_SG_DEAL_TITLE">
+			<Text>Settlement Deal</Text>
+		</Row>
+		<Row Tag="LOC_SG_DEAL_SUBTITLE">
+			<Text>Relationship</Text>
+		</Row>
+		<Row Tag="LOC_SG_DEAL_NONE_FROM_GAME">
+			<Text>The game offers none of your settlements for a deal with this leader.</Text>
+		</Row>
+		<Row Tag="LOC_SG_DEAL_NONE_ALLOWED">
+			<Text>Your Settlement Gifting options hide all of your settlements. Change them under Options, Mods.</Text>
+		</Row>
+		<Row Tag="LOC_SG_BACK_TO_DEAL">
+			<Text>Back To Deal</Text>
+		</Row>
+		<Row Tag="LOC_SG_CONFIRM_TITLE">
+			<Text>Give Away Settlements?</Text>
+		</Row>
+		<Row Tag="LOC_SG_CONFIRM_BODY">
+			<Text>{1_Settlements} will go to {2_Leader} if the deal goes through. A settlement that changes hands suffers unrest for several turns.</Text>
+		</Row>
+
+		<!-- Options, Mods tab -->
+		<Row Tag="LOC_SG_OPTIONS_CATEGORY_MODS">
+			<Text>Mods</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTIONS_CATEGORY_MODS_DESCRIPTION">
+			<Text>Settings of installed mods.</Text>
+		</Row>
+		<Row Tag="LOC_OPTIONS_GROUP_SETTLEMENT_GIFTING">
+			<Text>Settlement Gifting</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_MIN_RELATIONSHIP">
+			<Text>Minimum Relationship</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_MIN_RELATIONSHIP_DESCRIPTION">
+			<Text>The relationship you need with a leader before you can propose a settlement deal to them.</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_RELATIONSHIP_ANY">
+			<Text>Any, at peace</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_RELATIONSHIP_NEUTRAL">
+			<Text>Neutral or better</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_RELATIONSHIP_FRIENDLY">
+			<Text>Friendly or better</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_RELATIONSHIP_HELPFUL">
+			<Text>Helpful or better</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_RELATIONSHIP_ALLIED">
+			<Text>Allies only</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_TOWNS_ONLY">
+			<Text>Towns Only</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_TOWNS_ONLY_DESCRIPTION">
+			<Text>List towns in settlement deals, but not cities.</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_ALLOW_CAPITAL">
+			<Text>Include Capitals</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_ALLOW_CAPITAL_DESCRIPTION">
+			<Text>List capitals in settlement deals. The game may still refuse to trade them.</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_CONFIRM">
+			<Text>Confirm Before Giving</Text>
+		</Row>
+		<Row Tag="LOC_SG_OPTION_CONFIRM_DESCRIPTION">
+			<Text>Ask before sending or accepting a deal that gives away one of your settlements.</Text>
+		</Row>
+	</EnglishText>
+</Database>

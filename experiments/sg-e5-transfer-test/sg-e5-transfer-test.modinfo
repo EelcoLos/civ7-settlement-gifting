@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Throwaway test for experiment E5 in docs/settlement-gifting-plan.md. Never publish it. -->
+<Mod id="sg-e5-transfer-test" version="1" xmlns="ModInfo">
+	<Properties>
+		<Name>Settlement Gifting E5 test (throwaway)</Name>
+		<Description>Two diplomatic actions that try EFFECT_CITY_TRANSFER_OWNER on a targeted settlement. Test saves only.</Description>
+		<Authors>Strikeman</Authors>
+		<AffectsSavedGames>1</AffectsSavedGames>
+	</Properties>
+	<ActionCriteria>
+		<Criteria id="always">
+			<AlwaysMet />
+		</Criteria>
+	</ActionCriteria>
+	<ActionGroups>
+		<ActionGroup id="e5-game" scope="game" criteria="always">
+			<Actions>
+				<UpdateDatabase>
+					<Item>data/e5-actions.xml</Item>
+					<Item>data/e5-gameeffects.xml</Item>
+				</UpdateDatabase>
+				<UpdateText>
+					<Item>text/e5-text.xml</Item>
+				</UpdateText>
+			</Actions>
+		</ActionGroup>
+	</ActionGroups>
+</Mod>

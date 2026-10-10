@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+	<EnglishText>
+		<Row Tag="LOC_MOD_SETTLEMENT_GIFTING_NAME">
+			<Text>Settlement Gifting</Text>
+		</Row>
+		<Row Tag="LOC_MOD_SETTLEMENT_GIFTING_DESCRIPTION">
+			<Text>Give a town or city to another leader while you are at peace, through a deal in the diplomacy screen. A game setup option turns it off for a game. It only changes the UI, so you can add it to a save or remove it.</Text>
+		</Row>
+	</EnglishText>
+</Database>

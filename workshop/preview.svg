@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+	<defs>
+		<radialGradient id="bg" cx="50%" cy="42%" r="75%">
+			<stop offset="0" stop-color="#28344f"/>
+			<stop offset="1" stop-color="#0c1222"/>
+		</radialGradient>
+		<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#f3d58b"/>
+			<stop offset="1" stop-color="#b8892f"/>
+		</linearGradient>
+		<marker id="arrowhead" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+			<path d="M0,0 L10,5 L0,10 z" fill="#e9c46a"/>
+		</marker>
+	</defs>
+
+	<rect width="640" height="640" fill="url(#bg)"/>
+	<rect x="18" y="18" width="604" height="604" fill="none" stroke="url(#gold)" stroke-width="4"/>
+	<rect x="30" y="30" width="580" height="580" fill="none" stroke="#b8892f" stroke-opacity="0.5" stroke-width="1.5"/>
+
+	<g font-family="Georgia, 'DejaVu Serif', serif" text-anchor="middle">
+		<text x="320" y="116" font-size="58" font-weight="bold" letter-spacing="5" fill="url(#gold)">SETTLEMENT</text>
+		<text x="320" y="184" font-size="58" font-weight="bold" letter-spacing="5" fill="url(#gold)">GIFTING</text>
+		<text x="320" y="508" font-size="28" fill="#efe4c8">Give a town or city at peace</text>
+		<text x="320" y="572" font-size="20" letter-spacing="4" fill="#c9a227">CIVILIZATION VII · 1.5.0</text>
+	</g>
+
+	<!-- Giver's banner -->
+	<rect x="62" y="236" width="106" height="8" rx="3" fill="url(#gold)"/>
+	<path d="M70,244 H160 V400 L115,376 L70,400 Z" fill="#2f5d9b" stroke="#c9a227" stroke-width="3"/>
+	<circle cx="115" cy="300" r="22" fill="none" stroke="#e9c46a" stroke-width="3"/>
+	<path d="M115,284 L131,300 L115,316 L99,300 Z" fill="#e9c46a"/>
+
+	<!-- Receiver's banner -->
+	<rect x="472" y="236" width="106" height="8" rx="3" fill="url(#gold)"/>
+	<path d="M480,244 H570 V400 L525,376 L480,400 Z" fill="#9b2f3a" stroke="#c9a227" stroke-width="3"/>
+	<circle cx="525" cy="300" r="22" fill="none" stroke="#e9c46a" stroke-width="3"/>
+	<circle cx="525" cy="300" r="9" fill="#e9c46a"/>
+
+	<!-- The settlement changing hands -->
+	<path d="M178,318 Q320,168 462,318" fill="none" stroke="#e9c46a" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 10" marker-end="url(#arrowhead)"/>
+	<ellipse cx="320" cy="424" rx="100" ry="18" fill="#4a5d3a"/>
+	<rect x="262" y="380" width="38" height="42" fill="#e8dcc0"/>
+	<path d="M256,382 L281,358 L306,382 Z" fill="#c0563c"/>
+	<rect x="276" y="398" width="10" height="24" fill="#3a2f28"/>
+	<rect x="306" y="346" width="28" height="76" fill="#ddd0b0"/>
+	<path d="M300,348 L320,316 L340,348 Z" fill="#c0563c"/>
+	<rect x="315" y="362" width="10" height="14" fill="#3a2f28"/>
+	<rect x="342" y="388" width="42" height="34" fill="#e8dcc0"/>
+	<path d="M336,390 L363,366 L390,390 Z" fill="#c0563c"/>
+	<rect x="358" y="402" width="10" height="20" fill="#3a2f28"/>
+</svg>
