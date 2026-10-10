@@ -89,7 +89,8 @@ look at the four methods above first.
 - `reference/` links to the shared copy of the game's `Base/modules` and stays out of git. Create
   it with `ln -s ../civ7-reference reference`.
 
-To release, bump `version` in the modinfo and `CHANGELOG.md`, then push the tag `v<version>`. The
+To release, bump `<Version>` in the modinfo and `CHANGELOG.md`, then push the tag `v<version>`. The
+`version` attribute of `<Mod>` stays a whole number, as in every modinfo that loads. The
 Release workflow runs the tests, zips the mod and publishes a GitHub release.
 [workshop/PUBLISHING.md](workshop/PUBLISHING.md) covers Workshop uploads.
 

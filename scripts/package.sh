@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Zips the mod folder into dist/settlement-gifting-<version>.zip, version taken from the modinfo.
+# Zips the mod folder into dist/settlement-gifting-<version>.zip, version from <Version> in the modinfo.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MOD=settlement-gifting
-VERSION=$(sed -n "s/.*<Mod id=\"$MOD\" version=\"\([^\"]*\)\".*/\1/p" "$ROOT/mod/$MOD/$MOD.modinfo")
+VERSION=$(sed -n "s/.*<Version>\([^<]*\)<\/Version>.*/\1/p" "$ROOT/mod/$MOD/$MOD.modinfo")
 [ -n "$VERSION" ] || { echo "no version found in $MOD.modinfo" >&2; exit 1; }
 OUT="$ROOT/dist/$MOD-$VERSION.zip"
 mkdir -p "$ROOT/dist"

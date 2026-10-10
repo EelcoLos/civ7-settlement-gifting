@@ -55,6 +55,11 @@ Found while building, and how the mod handles it:
    folder made the game delete and rediscover the mod, which came back switched off. The
    modinfo now sets `EnabledByDefault` to 1, as Firaxis' DLC modinfos do. The module listing and
    the off-switch of item 6 were made before this was known; both stay as harmless hardening.
+   Later tries showed more: with the mod enabled in Add-ons (`Modding.canEnableMods` status 0, no
+   errors) and the game restarted, it was still missing from "Target Mods". The one difference
+   from Tech and Civic Queue's modinfo, which loads, was `version="0.1.0"`; every working
+   modinfo uses a whole number. The modinfo now has `version="1"`, with the release version in a
+   `<Version>` property that the packaging script and release workflow read. Not yet confirmed.
 
 ### Phase 0 results
 

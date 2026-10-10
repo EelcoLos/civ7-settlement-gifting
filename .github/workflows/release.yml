@@ -14,7 +14,7 @@ jobs:
         run: node --test test/sg-rules.test.js
       - name: Check that the tag matches the modinfo version
         run: |
-          version=$(sed -n 's/.*<Mod id="settlement-gifting" version="\([^"]*\)".*/\1/p' mod/settlement-gifting/settlement-gifting.modinfo)
+          version=$(sed -n 's/.*<Version>\([^<]*\)<\/Version>.*/\1/p' mod/settlement-gifting/settlement-gifting.modinfo)
           if [ "v$version" != "$GITHUB_REF_NAME" ]; then
             echo "::error::tag $GITHUB_REF_NAME does not match modinfo version $version"
             exit 1
