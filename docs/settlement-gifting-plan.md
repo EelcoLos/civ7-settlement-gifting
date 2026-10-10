@@ -69,7 +69,7 @@ Found while building, and how the mod handles it:
 
 | Exp | Date | Result | Notes |
 |---|---|---|---|
-| E1 | 2026-10-10 | Not yet conclusive | New Antiquity game, turn 5, both players with only a capital: the deal screen opens at peace, gold, influence and the AI verdict work, no settlement offered for either side. Capitals are probably never tradeable; retest with towns. |
+| E1 | 2026-10-10 | Pass | Modern-age save, Catherine at peace with Himiko (Friendly): the settlement deal lists settlements for both players, with no peace item in the deal, plus gold and influence lumps. An earlier Antiquity game where both players had only a capital listed none, so capitals look untradeable. |
 | E1b | | | |
 | E2 | | | |
 | E3 | | | |
