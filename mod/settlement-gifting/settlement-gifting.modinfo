@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- version stays a whole number like every working modinfo; the release version is <Version>. -->
 <Mod id="settlement-gifting" version="1" xmlns="ModInfo">
 	<Properties>
 		<Name>LOC_MOD_SETTLEMENT_GIFTING_NAME</Name>
 		<Description>LOC_MOD_SETTLEMENT_GIFTING_DESCRIPTION</Description>
 		<Authors>Strikeman</Authors>
+		<!-- The Mod version attribute stays a whole number, as in every modinfo that loads. -->
 		<Version>0.1.0</Version>
 		<Package>Mod</Package>
 		<AffectsSavedGames>0</AffectsSavedGames>
