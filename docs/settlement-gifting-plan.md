@@ -39,7 +39,8 @@ Found while building, and how the mod handles it:
 6. The setup option turns the feature off (No Settlement Gifting, unticked by default), like the
    game's own No Civ Unlocks. A save from before the mod has no value, and what the game returns
    for a missing value is unknown; with this wording only an explicit yes turns the feature off.
-   The first version had an on-switch that may have read as off in such a save.
+   The first version had an on-switch that may have read as off in such a save. In the game a
+   save without the value reads `null` (logged at startup on 2026-10-10), so both would work.
 7. The in-game options default to minimum relationship Any, towns only off, capitals off and
    confirmation on. Only the on/off toggle is per game. The screen lists both leaders'
    settlements, gold and influence, as the base peace deal does, so a deal can also ask for the
@@ -68,7 +69,7 @@ Found while building, and how the mod handles it:
 
 | Exp | Date | Result | Notes |
 |---|---|---|---|
-| E1 | | | |
+| E1 | 2026-10-10 | Not yet conclusive | New Antiquity game, turn 5, both players with only a capital: the deal screen opens at peace, gold, influence and the AI verdict work, no settlement offered for either side. Capitals are probably never tradeable; retest with towns. |
 | E1b | | | |
 | E2 | | | |
 | E3 | | | |
