@@ -1,10 +1,10 @@
 # Settlement Gifting
 
-A Civilization VII mod that lets you give a town or city to another leader while you are at peace.
-It adds an **Offer Settlement** button to the diplomacy screen of every leader you are at peace
-with. The button opens the game's own deal screen, which the base game only uses to end wars. At
-peace the deal holds no peace agreement, and the header shows your relationship where the war
-name would be.
+A Civilization VII mod that lets you give a town or city to another leader while you are at peace,
+or ask for one of theirs. It adds an **Offer Settlement** button to the diplomacy screen of every
+leader you are at peace with. The button opens the game's own deal screen, which the base game
+only uses to end wars. At peace the deal holds no peace agreement, and the header shows your
+relationship where the war name would be.
 
 Mod id `settlement-gifting`, version 0.1.0, built for game version 1.5.0, MIT license.
 
@@ -19,9 +19,9 @@ The mod itself is the main test.
 
 - Open the diplomacy screen of a leader you have met and are at peace with, and click
   **Offer Settlement**.
-- Click your settlements, or gold and influence from either side, to move them into the deal.
-  Click again to take them out. The other leader's settlements are not listed, since the mod is
-  for giving. An AI leader's verdict updates with each change.
+- Click settlements, gold or influence on either side to move them into the deal, and click again
+  to take them out. Both leaders' settlements are listed, as in a peace deal, so a deal can also
+  ask for one of theirs. An AI leader's verdict updates with each change.
 - Propose sends the deal. A human receiver gets the same screen with Accept and Reject, and can
   change the deal before sending it back.
 - The button is greyed out, with the reason in its tooltip, when it is not your turn, when a deal

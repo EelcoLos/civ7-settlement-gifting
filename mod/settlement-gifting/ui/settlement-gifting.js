@@ -97,26 +97,25 @@ function isInWorkingDeal(workingDealId, workingDeal, cityId) {
     );
 }
 
-/** Lists the local player's settlements the game offers for the deal, filtered by the settings. */
-function addSettlementChoices(panel, workingDealId, workingDeal, settings) {
-    const me = GameContext.localPlayerID;
+/** Lists one player's settlements the game offers for the deal, filtered by the settings. */
+function addSettlementChoices(panel, workingDealId, workingDeal, owner, container, settings) {
     const counts = { offered: 0, shown: 0 };
-    for (const dealItem of Game.DiplomacyDeals.getPossibleWorkingDealItems(workingDealId, me, DiplomacyDealItemTypes.CITIES)) {
+    for (const dealItem of Game.DiplomacyDeals.getPossibleWorkingDealItems(workingDealId, owner, DiplomacyDealItemTypes.CITIES)) {
         if (!dealItem.cityId || dealItem.subType != DiplomacyDealItemCityTransferTypes.OFFER) continue;
         const city = Cities.get(dealItem.cityId);
-        if (!city || (city.originalOwner == me && city.owner != me)) continue;
+        if (!city || (city.originalOwner == owner && city.owner != owner)) continue;
         counts.offered++;
         if (isInWorkingDeal(workingDealId, workingDeal, dealItem.cityId) || !settlementAllowed(city, settings)) continue;
         const element = panel.createCityDealItem(city);
-        element.addEventListener("action-activate", () => panel.moveDealItem(dealItem, me, false, element));
-        panel.ourYourDealItemsContainer?.appendChild(element);
+        element.addEventListener("action-activate", () => panel.moveDealItem(dealItem, owner, false, element));
+        container?.appendChild(element);
         counts.shown++;
     }
     return counts;
 }
 
-// shortcut: a trimmed copy of the base populatePeaceDeal (no war lookup, no peace item, only your own
-// settlements listed); compare it with panel-diplomacy-peace-deal.js after every game update.
+// shortcut: a trimmed copy of the base populatePeaceDeal (no war lookup, no peace item); compare it
+// with panel-diplomacy-peace-deal.js after every game update.
 function populateSettlementDeal(panel) {
     const me = GameContext.localPlayerID;
     const them = otherDealPlayer();
@@ -212,7 +211,10 @@ function populateSettlementDeal(panel) {
     }
     panel.populateGoldInfluenceItems(workingDealId, workingDeal, me, panel.ourYourDealItemsContainer);
     panel.populateGoldInfluenceItems(workingDealId, workingDeal, them, panel.theirTheirDealItemsContainer);
-    const settlements = addSettlementChoices(panel, workingDealId, workingDeal, getSettings());
+    // Both leaders' settlements, as in the base peace deal.
+    const settings = getSettings();
+    const settlements = addSettlementChoices(panel, workingDealId, workingDeal, me, panel.ourYourDealItemsContainer, settings);
+    addSettlementChoices(panel, workingDealId, workingDeal, them, panel.theirTheirDealItemsContainer, settings);
 
     panel.updateButtonStates();
     panel.showLeaderModel(false);

@@ -39,9 +39,9 @@ Found while building, and how the mod handles it:
 6. The setup toggle defaults to on. A save without the value, because the mod was added mid-game,
    counts as on.
 7. The in-game options default to minimum relationship Any, towns only off, capitals off and
-   confirmation on. Only the on/off toggle is per game. The screen lists only your own
-   settlements, plus gold and influence on both sides. Asking for the other leader's settlements
-   was left out.
+   confirmation on. Only the on/off toggle is per game. The screen lists both leaders'
+   settlements, gold and influence, as the base peace deal does, so a deal can also ask for the
+   other leader's settlements. Towns only and capitals apply to both sides.
 
 ### Phase 0 results
 
