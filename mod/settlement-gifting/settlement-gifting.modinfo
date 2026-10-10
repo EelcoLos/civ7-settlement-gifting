@@ -31,7 +31,10 @@
 				<UpdateText>
 					<Item>text/en_us/SettlementGiftingText.xml</Item>
 				</UpdateText>
+				<!-- Every module is listed, as other UI mods do: unlisted files may not be loaded. -->
 				<UIScripts>
+					<Item>ui/sg-rules.js</Item>
+					<Item>ui/sg-settings.js</Item>
 					<Item>ui/settlement-gifting.js</Item>
 				</UIScripts>
 			</Actions>

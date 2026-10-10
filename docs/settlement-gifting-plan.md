@@ -42,6 +42,10 @@ Found while building, and how the mod handles it:
    confirmation on. Only the on/off toggle is per game. The screen lists both leaders'
    settlements, gold and influence, as the base peace deal does, so a deal can also ask for the
    other leader's settlements. Towns only and capitals apply to both sides.
+8. The first try in the game showed no Offer Settlement button. The modinfo listed only
+   `ui/settlement-gifting.js` in UIScripts, and the game probably does not load a mod file the
+   modinfo does not name, so the two modules it imports were missing and nothing ran. All three
+   files are now listed, as Leonardfactory's UI mod does with its modules. Not yet confirmed.
 
 ### Phase 0 results
 
