@@ -71,7 +71,7 @@ Found while building, and how the mod handles it:
 |---|---|---|---|
 | E1 | 2026-10-10 | Pass | Modern-age save, Catherine at peace with Himiko (Friendly): the settlement deal lists settlements for both players, with no peace item in the deal, plus gold and influence lumps. An earlier Antiquity game where both players had only a capital listed none, so capitals look untradeable. |
 | E1b | | | |
-| E2 | | | |
+| E2 | 2026-10-10 | Pass | Same save: Marrakesh offered to Machiavelli (AI, at peace). Verdict "will accept", the confirmation dialog appeared, and after Propose the city became his. Little relationship change. No unrest visible to the giver; whether the receiver gets transfer unrest is still open (E3). |
 | E3 | | | |
 | E4 | | | |
 | E5 | | | |

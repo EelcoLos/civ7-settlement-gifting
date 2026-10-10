@@ -43,7 +43,7 @@
 			<Text>Give Away Settlements?</Text>
 		</Row>
 		<Row Tag="LOC_SG_CONFIRM_BODY">
-			<Text>{1_Settlements} will go to {2_Leader} if the deal goes through. A settlement that changes hands suffers unrest for several turns.</Text>
+			<Text>{1_Settlements} will go to {2_Leader} if the deal goes through.</Text>
 		</Row>
 
 		<!-- Options, Mods tab -->

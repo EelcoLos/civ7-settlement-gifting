@@ -56,9 +56,9 @@ peace, so a player without the mod would get an empty screen.
 ## Limits
 
 - The game decides whether an AI accepts, and the AI never offers a settlement by itself.
-- A settlement that changes hands gets the game's transfer unrest, `StandardCityTransferUnrest`
-  in the game data: amount 15 for 10 turns, scaled by game speed. The engine applies it to every
-  transfer.
+- The game data has a transfer unrest, `StandardCityTransferUnrest` (amount 15 for 10 turns,
+  scaled by game speed). In the first test a gifted city showed none to the giver; whether the
+  receiver gets it is still unchecked.
 - English only. Every string is a `LOC_` key in `text/en_us/`, so a translation is one more file.
 
 ## How it works
