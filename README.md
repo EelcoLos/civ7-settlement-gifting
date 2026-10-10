@@ -29,8 +29,8 @@ The mod itself is the main test.
 
 ## Settings
 
-Game setup has a Settlement Gifting checkbox under Advanced Options, Game Options. It is on by
-default, and saves made before the mod was enabled count as on.
+To play a game without the mod, tick No Settlement Gifting under Advanced Options, Game Options
+when you set it up. It is unticked by default, and saves made before the mod have it off too.
 
 Each player sets the rest under Options, Mods, Settlement Gifting:
 
@@ -75,8 +75,8 @@ Everything lives in `mod/settlement-gifting/ui/`:
 - `sg-rules.js` holds the decisions that need no game objects, and `test/sg-rules.test.js` tests
   them.
 
-The setup checkbox is one `Parameters` row in `config/sg-config.xml`, which the script reads with
-`Configuration.getGame().getValue("SettlementGifting")`. When a game update breaks the mod,
+The setup option is one `Parameters` row in `config/sg-config.xml`, which the script reads with
+`Configuration.getGame().getValue("NoSettlementGifting")`. When a game update breaks the mod,
 look at the four methods above first.
 
 ## Development

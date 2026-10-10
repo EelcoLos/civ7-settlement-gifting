@@ -36,16 +36,21 @@ Found while building, and how the mod handles it:
    leaves it alone.
 5. The incoming-deal notification texts, `LOC_DIPLOMACY_MAKE_DEAL_NOTIFICATION_*`, say "peace
    deal". E3 shows whether the engine uses them for a deal at peace.
-6. The setup toggle defaults to on. A save without the value, because the mod was added mid-game,
-   counts as on.
+6. The setup option turns the feature off (No Settlement Gifting, unticked by default), like the
+   game's own No Civ Unlocks. A save from before the mod has no value, and what the game returns
+   for a missing value is unknown; with this wording only an explicit yes turns the feature off.
+   The first version had an on-switch that may have read as off in such a save.
 7. The in-game options default to minimum relationship Any, towns only off, capitals off and
    confirmation on. Only the on/off toggle is per game. The screen lists both leaders'
    settlements, gold and influence, as the base peace deal does, so a deal can also ask for the
    other leader's settlements. Towns only and capitals apply to both sides.
 8. The first try in the game showed no Offer Settlement button. The modinfo listed only
-   `ui/settlement-gifting.js` in UIScripts, and the game probably does not load a mod file the
-   modinfo does not name, so the two modules it imports were missing and nothing ran. All three
-   files are now listed, as Leonardfactory's UI mod does with its modules. Not yet confirmed.
+   `ui/settlement-gifting.js` in UIScripts, and the game may not load a mod file the modinfo does
+   not name, so all three files are now listed, as Leonardfactory's UI mod does with its modules.
+   The second try, in a Modern-age save from before the mod, still showed no button and nothing
+   from the mod in UI.log. Either the mod did not run, or the old on-switch read as off (item 6).
+   The mod now writes `[settlement-gifting] loaded; NoSettlementGifting = <value>` to UI.log
+   at startup, which tells the two apart and shows what a missing setup value reads as.
 
 ### Phase 0 results
 

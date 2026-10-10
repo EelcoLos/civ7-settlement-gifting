@@ -5,7 +5,7 @@ import {
     meetsRelationship,
     settlementAllowed,
     dealButtonBlocker,
-    isEnabledSetupValue,
+    isTurnedOffInSetup,
     emptyDealHint
 } from "../mod/settlement-gifting/ui/sg-rules.js";
 
@@ -45,13 +45,13 @@ test("deal button", () => {
     assert.equal(dealButtonBlocker({ ...ready, relationshipOk: false }), "LOC_SG_BLOCKED_RELATIONSHIP");
 });
 
-test("setup toggle", () => {
-    assert.equal(isEnabledSetupValue(true), true);
-    assert.equal(isEnabledSetupValue(undefined), true);
-    assert.equal(isEnabledSetupValue(null), true);
-    assert.equal(isEnabledSetupValue(false), false);
-    assert.equal(isEnabledSetupValue(0), false);
-    assert.equal(isEnabledSetupValue("0"), false);
+test("setup option", () => {
+    assert.equal(isTurnedOffInSetup(true), true);
+    assert.equal(isTurnedOffInSetup(1), true);
+    assert.equal(isTurnedOffInSetup(false), false);
+    assert.equal(isTurnedOffInSetup(0), false);
+    assert.equal(isTurnedOffInSetup(undefined), false, "saves from before the mod keep it on");
+    assert.equal(isTurnedOffInSetup(null), false);
 });
 
 test("empty deal hint", () => {

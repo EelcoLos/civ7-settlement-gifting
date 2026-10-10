@@ -3,10 +3,10 @@
 	<EnglishText>
 		<!-- Game setup -->
 		<Row Tag="LOC_SG_SETUP_NAME">
-			<Text>Settlement Gifting</Text>
+			<Text>No Settlement Gifting</Text>
 		</Row>
 		<Row Tag="LOC_SG_SETUP_DESCRIPTION">
-			<Text>Leaders at peace can trade towns and cities through a deal in the diplomacy screen.</Text>
+			<Text>Turns off the Settlement Gifting mod for this game: leaders at peace cannot trade towns and cities through a deal.</Text>
 		</Row>
 
 		<!-- Diplomacy screen -->

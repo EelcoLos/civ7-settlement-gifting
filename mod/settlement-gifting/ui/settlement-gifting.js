@@ -10,9 +10,9 @@ import { DialogBoxManager } from '/core/ui/dialog-box/manager-dialog-box.js';
 import { DialogBoxAction } from '/core/ui/dialog-box/model-dialog-box.js';
 import { MustGetElement } from '/core/ui/utilities/utilities-dom.js';
 import { getSettings } from './sg-settings.js';
-import { meetsRelationship, settlementAllowed, dealButtonBlocker, isEnabledSetupValue, emptyDealHint } from './sg-rules.js';
+import { meetsRelationship, settlementAllowed, dealButtonBlocker, isTurnedOffInSetup, emptyDealHint } from './sg-rules.js';
 
-const SETUP_KEY = "SettlementGifting"; // ConfigurationKey in config/sg-config.xml
+const SETUP_KEY = "NoSettlementGifting"; // ConfigurationKey in config/sg-config.xml
 
 const RELATIONSHIP_LABELS = [
     "LOC_SG_OPTION_RELATIONSHIP_ANY",
@@ -44,7 +44,7 @@ function createDealAction(them) {
     if (!player || !other || !diplomacy || them == me) return null;
     const settings = getSettings();
     const blocker = dealButtonBlocker({
-        enabled: isEnabledSetupValue(Configuration.getGame().getValue(SETUP_KEY)),
+        enabled: !isTurnedOffInSetup(Configuration.getGame().getValue(SETUP_KEY)),
         isMajor: other.isMajor && other.isAlive,
         hasMet: diplomacy.hasMet(them),
         atWar: diplomacy.isAtWarWith(them),
@@ -297,3 +297,5 @@ if (DealPanel) {
 } else {
     console.error("[settlement-gifting] panel-diplomacy-peace-deal not found; the deal screen is unchanged");
 }
+// One line in Logs/UI.log, so a bug report shows whether the mod ran and what the setup option read.
+console.warn(`[settlement-gifting] loaded; ${SETUP_KEY} = ${JSON.stringify(Configuration.getGame().getValue(SETUP_KEY))}`);

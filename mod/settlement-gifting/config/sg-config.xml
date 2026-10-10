@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Game setup toggle, shown under Advanced Options > Game Options. ui/settlement-gifting.js reads it
-     with Configuration.getGame().getValue("SettlementGifting"). -->
+<!-- Game setup option under Advanced Options > Game Options, read by ui/settlement-gifting.js.
+     It turns the feature off rather than on, like the game's own No Civ Unlocks, so saves made
+     before the mod, which lack the value, keep the feature. -->
 <Database>
 	<Parameters>
-		<Row ParameterID="SettlementGifting" Name="LOC_SG_SETUP_NAME" Description="LOC_SG_SETUP_DESCRIPTION" Domain="bool" Hash="0" DefaultValue="1" ConfigurationGroup="Game" ConfigurationKey="SettlementGifting" GroupId="GameOptions" ChangeableAfterGameStart="0" SortIndex="2100" />
+		<Row ParameterID="NoSettlementGifting" Name="LOC_SG_SETUP_NAME" Description="LOC_SG_SETUP_DESCRIPTION" Domain="bool" Hash="0" DefaultValue="0" ConfigurationGroup="Game" ConfigurationKey="NoSettlementGifting" GroupId="GameOptions" ChangeableAfterGameStart="0" SortIndex="2100" />
 	</Parameters>
 </Database>

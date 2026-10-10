@@ -40,11 +40,11 @@ export function dealButtonBlocker(state) {
 }
 
 /**
- * The game setup toggle. Saves started before the mod was enabled have no value at all;
- * the feature is on for them, as it is by default for new games.
+ * The "No Settlement Gifting" setup option. Only an explicit yes turns the feature off, so saves
+ * started before the mod, which have no value at all, keep it on whatever the game returns for them.
  */
-export function isEnabledSetupValue(value) {
-    return value !== false && value !== 0 && value !== "0";
+export function isTurnedOffInSetup(value) {
+    return value === true || value === 1 || value === "1";
 }
 
 /** Text for the middle of a new deal when none of the local player's settlements is listed. */
