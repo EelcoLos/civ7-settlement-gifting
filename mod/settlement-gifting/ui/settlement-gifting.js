@@ -122,6 +122,8 @@ function isInWorkingDeal(workingDealId, workingDeal, cityId) {
 function addSettlementChoices(panel, workingDealId, workingDeal, owner, container, settings) {
     const counts = { offered: 0, shown: 0 };
     for (const dealItem of Game.DiplomacyDeals.getPossibleWorkingDealItems(workingDealId, owner, DiplomacyDealItemTypes.CITIES)) {
+        // shortcut: temporary, to see which transfer type the game gives a conquered city; remove once known.
+        if (dealItem.cityId) console.warn(`[settlement-gifting] offered city ${dealItem.cityId.id}: subType ${dealItem.subType}, owner ${Cities.get(dealItem.cityId)?.owner}, original ${Cities.get(dealItem.cityId)?.originalOwner}, OFFER = ${DiplomacyDealItemCityTransferTypes.OFFER}, CEDE_OCCUPIED = ${DiplomacyDealItemCityTransferTypes.CEDE_OCCUPIED}`);
         if (!dealItem.cityId || dealItem.subType != DiplomacyDealItemCityTransferTypes.OFFER) continue;
         const city = Cities.get(dealItem.cityId);
         if (!city || (city.originalOwner == owner && city.owner != owner)) continue;
