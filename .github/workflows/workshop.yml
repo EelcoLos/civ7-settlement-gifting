@@ -8,6 +8,11 @@ on:
       changenote:
         description: Change note for the Workshop page (no straight double quotes)
         required: true
+      visibility:
+        description: Set the item's visibility, or keep what the Steam page has
+        type: choice
+        options: [keep, public, friends, private, unlisted]
+        default: keep
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -33,4 +38,7 @@ jobs:
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           CHANGENOTE: ${{ inputs.changenote }}
-        run: STEAMCMD="$HOME/steamcmd/steamcmd.sh" scripts/upload_workshop.sh --changenote "$CHANGENOTE"
+          VISIBILITY: ${{ inputs.visibility }}
+        run: |
+          [ "$VISIBILITY" = keep ] && VISIBILITY=
+          STEAMCMD="$HOME/steamcmd/steamcmd.sh" scripts/upload_workshop.sh --changenote "$CHANGENOTE" ${VISIBILITY:+--visibility "$VISIBILITY"}
