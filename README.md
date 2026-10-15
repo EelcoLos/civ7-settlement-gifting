@@ -10,10 +10,9 @@ Mod id `settlement-gifting`, version 0.1.0, built for game version 1.5.0, MIT li
 
 ## Status
 
-Written from the game's files on a machine without the game, and **not yet run in the game**. The
-engine may refuse settlements in a deal at peace. [experiments/README.md](experiments/README.md)
-lists the checks that settle it, which are Phase 0 of [the plan](docs/settlement-gifting-plan.md).
-The mod itself is the main test.
+Tested in the game against AI leaders: settlements are offered at peace, gifts and sales go through,
+and deal transfers give no unrest. Hotseat human-to-human trades and settlements you conquered
+yourself are still unchecked. Results are in [the plan](docs/settlement-gifting-plan.md).
 
 ## Using it
 
@@ -91,9 +90,9 @@ look at the five methods above first.
 - `reference/` links to the shared copy of the game's `Base/modules` and stays out of git. Create
   it with `ln -s ../civ7-reference reference`.
 
-To release, bump `<Version>` in the modinfo and `CHANGELOG.md`, then push the tag `v<version>`. The
-`version` attribute of `<Mod>` stays a whole number, as in every modinfo that loads. The
-Release workflow runs the tests, zips the mod and publishes a GitHub release.
+To release, bump `<Version>` in the modinfo and `CHANGELOG.md`, merge to `main`, then run Actions, Release,
+which runs the tests, zips the mod and publishes a GitHub release tagged `v<version>`. The `version`
+attribute of `<Mod>` stays a whole number, as in every modinfo that loads.
 [workshop/PUBLISHING.md](workshop/PUBLISHING.md) covers Workshop uploads.
 
 ## Layout
@@ -105,5 +104,5 @@ experiments/                    Phase 0 kit: console probes, E5 test mod, instru
 docs/                           the plan, with status and Phase 0 results
 scripts/                        package.sh, deploy.ps1, upload_workshop.sh
 workshop/                       Workshop description, preview, VDF template, PUBLISHING.md
-.github/workflows/              release.yml on tags v*, workshop.yml by hand
+.github/workflows/              test.yml on push, release.yml and workshop.yml by hand
 ```

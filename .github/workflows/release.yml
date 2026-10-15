@@ -1,8 +1,7 @@
-# On a v* tag: run the tests, zip the mod and publish a GitHub release with the zip.
+# Manual: test, zip the mod and publish a GitHub release tagged v<modinfo version> on the chosen ref.
 name: Release
 on:
-  push:
-    tags: ["v*"]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
@@ -10,20 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Unit tests
-        run: node --test test/sg-rules.test.js
-      - name: Check that the tag matches the modinfo version
-        run: |
-          version=$(sed -n 's/.*<Version>\([^<]*\)<\/Version>.*/\1/p' mod/settlement-gifting/settlement-gifting.modinfo)
-          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
-            echo "::error::tag $GITHUB_REF_NAME does not match modinfo version $version"
-            exit 1
-          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
       - name: Package
         run: scripts/package.sh
       - name: Publish the release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          awk '/^## /{n++} n==1' CHANGELOG.md > dist/notes.md
-          gh release create "$GITHUB_REF_NAME" dist/*.zip workshop/preview.png --title "$GITHUB_REF_NAME" --notes-file dist/notes.md
+          version=$(sed -n 's/.*<Version>\([^<]*\)<\/Version>.*/\1/p' mod/settlement-gifting/settlement-gifting.modinfo)
+          if ! grep -q "^## $version\b" CHANGELOG.md; then
+            echo "::error::CHANGELOG.md has no section for $version"
+            exit 1
+          fi
+          awk -v v="$version" '$0 ~ "^## "v {f=1; next} /^## /{f=0} f' CHANGELOG.md > dist/notes.md
+          gh release create "v$version" dist/*.zip workshop/preview.png --target "$GITHUB_SHA" --title "v$version" --notes-file dist/notes.md
